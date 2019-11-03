@@ -1,0 +1,35 @@
+{
+  "name": "dialogflowFirebaseFulfillment",
+  "description": "This is the default fulfillment for a Dialogflow agents using Cloud Functions for Firebase",
+  "version": "0.0.1",
+  "private": true,
+  "license": "Apache Version 2.0",
+  "author": "Google Inc.",
+  "engines": {
+    "node": "8"
+  },
+  "scripts": {
+    "start": "firebase serve --only functions:dialogflowFirebaseFulfillment",
+    "deploy": "firebase deploy --only functions:dialogflowFirebaseFulfillment"
+  },
+  "requires": true,
+  "dependencies": {
+    "actions-on-google": "^2.2.0",
+    "firebase-admin": "^5.13.1",
+    "firebase-functions": "^2.0.2",
+    "dialogflow": "^0.6.0",
+    "dialogflow-fulfillment": "^0.5.0",
+    "flesch-kincaid": "^1.0.4",
+    "normalize-strings": {
+      "integrity": "sha1-skp17UgXY5RAT3Rkm1y4BA6JmnU=",
+      "resolved": "https://registry.npmjs.org/normalize-strings/-/normalize-strings-1.1.0.tgz",
+      "version": "1.1.0"
+    },
+    "pluralize": {
+      "integrity": "sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==",
+      "resolved": "https://registry.npmjs.org/pluralize/-/pluralize-8.0.0.tgz",
+      "version": "8.0.0"
+    },
+    "syllable": "^4.0.0"
+  }
+}
