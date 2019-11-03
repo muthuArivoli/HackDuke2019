@@ -13,13 +13,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   const agent = new WebhookClient({ request, response });
   console.log('Dialogflow Request headers: ' + JSON.stringify(request.headers));
   console.log('Dialogflow Request body: ' + JSON.stringify(request.body));
- 
-    function funky(strang) {
-    var strung = strang.substr(1,strang.length-1);
-    return `${strung}${strung}`;
+  function words(st){
+    var spaceCount = (st.split(" ").length - 1);
+    return spaceCount;
   }
-  
-  
   function welcome(agent) {
     agent.add(`Welcome to my agent!`);
   }
@@ -31,7 +28,16 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   
     function test(agent) {
     let query = JSON.stringify(agent.query);
-    let thing = fleschKincaid({sentence: 1, word: 13, syllable: syllable(query)}).toString();
+    var thing=0;
+    if(words(query)==0){
+      thing=0.8;
+    }
+    if(words(query)==1){
+      thing=1.2;
+    }
+    else {
+      var thing = fleschKincaid({sentence: 1, word: words(query), syllable: syllable(query)}).toString();
+    }
     agent.add(`Your sentence was ${thing}`);
   }
 
